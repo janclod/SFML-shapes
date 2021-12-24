@@ -18,5 +18,7 @@ Circle::Circle(std::string name,
 	, m_color{c}
 	, m_radius{r}
 {
+	#ifndef NDEBUG
 	std::cout << "Constructed Circle" << std::endl;
+	#endif // NDEBUG
 }

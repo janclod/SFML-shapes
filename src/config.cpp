@@ -10,12 +10,16 @@ Config::Config(const std::string file)
 	: m_windowConfig(std::vector<int> { 800, 600 })
 	, m_fontConfig(FontConfig())
 	{
+		#ifndef NDEBUG
 		std::cout << "Constructed Config" << std::endl;
-		
+		#endif //NDEBUG		
+
 		std::fstream fin(file);
 		if (!fin.is_open())
 		{	
+			#ifndef NDEBUG
 			std::cout << "Failed to open file" << std::endl;
+			#endif // NDEBUG
 		} else {
 			std::string s = "";
 			int i = 0;
@@ -46,7 +50,9 @@ Config::Config(const std::string file)
 				{
 					m_circles.push_back(Circle());
 					fin >> s;
+					#ifndef NDEBUG
 					std::cout << s << std::endl;
+					#endif // NDEBUG
 					m_circles[countC].setName(s);
 					fin >> f;
 					m_circles[countC].setX(f);
@@ -68,7 +74,9 @@ Config::Config(const std::string file)
 				{
 					m_rects.push_back(Rectangle());
 					fin >> s;
+					#ifndef NDEBUG
 					std::cout << s << std::endl;
+					#endif // NDEBUG
 					m_rects[countR].setName(s);
 					fin >> f;
 					m_rects[countR].setX(f);
@@ -89,8 +97,10 @@ Config::Config(const std::string file)
 					countR++; 
 				}
 			}
+			#ifndef NDEBUG
 			std::cout << "N circle: " << countC << std::endl;
 			std::cout << "N rectangle: " << countR << std::endl;
+			#endif // NDEBUG
 		}
 		fin.close();
 	}

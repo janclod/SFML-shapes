@@ -20,5 +20,7 @@ Rectangle::Rectangle(std::string name,
 	, m_w{w}
 	, m_h{h}
 {
+	#ifndef NDEBUG
 	std::cout << "Constructed Rectangle" << std::endl;
+	#endif // NDEBUG
 }

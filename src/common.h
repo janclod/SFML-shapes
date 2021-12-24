@@ -22,11 +22,11 @@ void windowClose(sf::Window &window, const sf::Event &event);
 // Generate a collection of CircleShape based on input from config file
 std::vector<sf::CircleShape> loadCircles(Config &config);
 // Generate a collection of text labels for CricleShape based on input from config file
-std::vector<sf::Text> loadCircleTexts(std::vector<sf::CircleShape> &circles, sf::Font &myFont, Config &config);
+std::vector<sf::Text> loadCircleTexts(const std::vector<sf::CircleShape> &circles, const sf::Font &myFont, Config &config);
 // Generate a collection of RectangleShape based on input from config file
 std::vector<sf::RectangleShape> loadRects(Config &config);
 // Generate a collection of text labels for RectangleShape based on input from config file
-std::vector<sf::Text> loadRectTexts(std::vector<sf::RectangleShape> &rects, sf::Font &myFont, Config &config);
+std::vector<sf::Text> loadRectTexts(const std::vector<sf::RectangleShape> &rects, const sf::Font &myFont, Config &config);
 
 ///////////
 // UPDATE /
@@ -35,7 +35,7 @@ std::vector<sf::Text> loadRectTexts(std::vector<sf::RectangleShape> &rects, sf::
 // Update the postion of CircleShape based on input from config file
 void updatePositionCircle(sf::CircleShape &circle, Config &config, const size_t i);
 // Update the position of text labels for CircleShape based on input from config file
-void updatePositionCircleText(sf::CircleShape &circle, sf::Text &text, Config &config, const size_t i);
+void updatePositionCircleText(sf::Text &text, Config &config, const size_t i);
 // Update the postion of RectangleShape based on input from config file
 void updatePositionRect(sf::RectangleShape &rect, Config &config, const size_t i);
 // Update the position of text labels for RectangleShape based on input from config file
@@ -45,7 +45,7 @@ void updatePositionRectText(sf::Text &text, Config &config, const size_t i);
 // COLLISION //
 ///////////////
 // Helper function for detecting whether the shape is outside the window
-void isCircleOutside(sf::RenderWindow &win, sf::CircleShape &circle, Config &config, size_t &index);
-void isRectOutside(sf::RenderWindow &win, sf::RectangleShape &rect, Config &config, size_t &index);
+void isCircleOutside(const sf::RenderWindow &win, const sf::CircleShape &circle, Config &config, const size_t &index);
+void isRectOutside(const sf::RenderWindow &win, const sf::RectangleShape &rect, Config &config, const size_t &index);
 
 #endif // COMMON_H

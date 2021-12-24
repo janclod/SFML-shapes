@@ -6,6 +6,7 @@ CXXFLAGS=-std=c++17
 # Make sure you clean, before building release target
 # Object files may be built for debug mode and be used by the main target
 release: $(TARGETDIR)$(TARGET)
+$(TARGETDIR)$(TARGET): CXXFLAGS+=-DNDEBUG
 $(TARGETDIR)$(TARGET): $(TARGETDIR)main.o $(TARGETDIR)common.o $(TARGETDIR)config.o \
 			$(TARGETDIR)font.o $(TARGETDIR)circle.o $(TARGETDIR)rectangle.o
 	$(CXX) $(CXXFLAGS) $(TARGETDIR)main.o $(TARGETDIR)common.o $(TARGETDIR)config.o \

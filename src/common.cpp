@@ -29,8 +29,9 @@ void windowClose(sf::Window &window, const sf::Event &event)
 	// this event triggers when the window is closed
 	if (event.type == sf::Event::Closed)
 	{
-		std::cout << "The window was closed";
-		std::cout << std::endl;
+		#ifndef NDEBUG
+		std::cout << "The window was closed" << std::endl;
+		#endif // NDEBUG
 		window.close();
 	}			
 }		
@@ -44,7 +45,9 @@ std::vector<sf::CircleShape> loadCircles(Config &config)
 	// let's collect the shapes to draw on the screen
 	for (auto cConfig : config.getCircles())
 	{
+		#ifndef NDEBUG
 		std::cout << "Collecting " << cConfig.getName() << std::endl;
+		#endif // NDEBUG
 		sf::CircleShape circle(cConfig.getRadius());	// set the circle size
 		circle.setFillColor(cConfig.getColor());	// set the circle color
 		circle.setPosition(cConfig.getX(),
@@ -55,7 +58,7 @@ std::vector<sf::CircleShape> loadCircles(Config &config)
 	return circles;
 }
 
-std::vector<sf::Text> loadCircleTexts(std::vector<sf::CircleShape> &circles, sf::Font &myFont, Config &config)
+std::vector<sf::Text> loadCircleTexts(const std::vector<sf::CircleShape> &circles, const sf::Font &myFont, Config &config)
 {		
 	std::vector<sf::Text> texts;
 	for (size_t i = 0; i < circles.size(); i++)
@@ -82,7 +85,9 @@ std::vector<sf::RectangleShape> loadRects(Config &config)
 	// let's collect the shapes to draw on the screen
 	for (auto rConfig : config.getRects())
 	{
+		#ifndef NDEBUG
 		std::cout << "Collecting " << rConfig.getName() << std::endl;
+		#endif // NDEBUG
 		sf::RectangleShape rect(sf::Vector2f(rConfig.getWidth(),// set rect width
 						     rConfig.getHeight()));// set rect height
 		rect.setFillColor(rConfig.getColor());		// set the rect color
@@ -94,7 +99,7 @@ std::vector<sf::RectangleShape> loadRects(Config &config)
 	return rects;
 }
 
-std::vector<sf::Text> loadRectTexts(std::vector<sf::RectangleShape> &rects, sf::Font &myFont, Config &config)
+std::vector<sf::Text> loadRectTexts(const std::vector<sf::RectangleShape> &rects, const sf::Font &myFont, Config &config)
 {		
 	std::vector<sf::Text> texts;
 	for (size_t i = 0; i < rects.size(); i++)
@@ -131,12 +136,8 @@ void updatePositionCircle(sf::CircleShape &circle, Config &config, const size_t 
 	circle.setPosition(newPositionShape);
 }
 
-void updatePositionCircleText(sf::CircleShape &circle, sf::Text &text, Config &config, const size_t i)
+void updatePositionCircleText(sf::Text &text, Config &config, const size_t i)
 {
-	//sf::Vector2f textSize(text.getLocalBounds().width, text.getLocalBounds().height);
-	//sf::Vector2f circleSize(circle.getLocalBounds().width, circle.getLocalBounds().height);
-	//sf::Vector2f circlePosition(circle.getPosition()/*GlobalBounds().top, circles[i].getGlobalBounds().left*/);
-	//text.setPosition((circleSize / 2.f) + circlePosition - (textSize / 2.f));
 	sf::Vector2f previousPositionText = text.getPosition();
 	sf::Vector2f moveVectorText(config.getCircles()[i].getSpeedX(),
 				    config.getCircles()[i].getSpeedY());
@@ -170,7 +171,7 @@ void updatePositionRectText(sf::Text &text, Config &config, const size_t i)
 ///////////////
 // COLLISION //
 ///////////////
-void isCircleOutside(sf::RenderWindow &win, sf::CircleShape &circle, Config &config, size_t &index)
+void isCircleOutside(const sf::RenderWindow &win, const sf::CircleShape &circle, Config &config, const size_t &index)
 {
 	if (circle.getPosition().y < 0)
 	{
@@ -194,7 +195,7 @@ void isCircleOutside(sf::RenderWindow &win, sf::CircleShape &circle, Config &con
 	}	
 }
 
-void isRectOutside(sf::RenderWindow &win, sf::RectangleShape &rect, Config &config, size_t &index)
+void isRectOutside(const sf::RenderWindow &win, const sf::RectangleShape &rect, Config &config, const size_t &index)
 {
 	if (rect.getPosition().y < 0)
 	{
