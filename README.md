@@ -18,7 +18,7 @@ The software should do the following:
 * collect information from configuration file
 * draw shapes based on input from configuration file
 * shapes should move according to information from configuration file
-* shapes should bounc off the edges of the window
+* shapes should bounce off the edges of the window
 
 ## Build and running instructions
 
@@ -34,7 +34,7 @@ Make is usually installed by default.
 
 Clone the github repository:
 
-`git clone <repo_URL>`
+`git clone https://github.com/janclod/SFML-shapes.git`
 
 Open the terminal and move to the root folder.
 
@@ -64,3 +64,5 @@ Depending on your build:
 2. `./SFMLGame_debug` for running debug
 
 Enjoy! :D
+
+Edit the `config.txt` to add/edit shapes.
