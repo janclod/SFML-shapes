@@ -1,0 +1,8 @@
+# Building files
+*.o
+
+# Executables
+SFML*
+
+# Others
+TODO
