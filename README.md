@@ -66,3 +66,9 @@ Depending on your build:
 Enjoy! :D
 
 Edit the `config.txt` to add/edit shapes.
+
+## Reference
+
+1. [YouTube lectures](https://www.youtube.com/watch?v=LpEdZbUdDe4&list=PL_xRyXins848jkwC9Coy7B4N5XTOnQZzz)
+2. [Teacher website](http://www.cs.mun.ca/~dchurchill/teaching.shtml)
+
