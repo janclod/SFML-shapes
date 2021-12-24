@@ -13,7 +13,7 @@ Small example for familiarizing with the [SFML library](www.sfml-dev.org/)
 
 ## What should the software do?
 
-The software should do the following thing:
+The software should do the following:
 
 * collect information from configuration file
 * draw shapes based on input from configuration file
