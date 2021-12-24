@@ -4,7 +4,7 @@ Small example for familiarizing with the [SFML library](www.sfml-dev.org/)
 
 ## Learning objectives
 
-* familiarize with the [CircleShape](https://www.sfml-dev.org/documentation/2.5.1/classsf_1_1CircleShape.php)() and [RectangleShape](https://www.sfml-dev.org/documentation/2.5.1/classsf_1_1RectangleShape.php) classes
+* familiarize with the [CircleShape](https://www.sfml-dev.org/documentation/2.5.1/classsf_1_1CircleShape.php) and [RectangleShape](https://www.sfml-dev.org/documentation/2.5.1/classsf_1_1RectangleShape.php) classes
 
 * practice with classes
 * practice with building software from multiple files
